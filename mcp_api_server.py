@@ -886,5 +886,7 @@ async def get_news_by_query(request: QueryRequest):
 # Entrypoint (optional)
 # ------------------------------------------------------------------------------
 if __name__ == "__main__":
-    print("Starting MCP API Server at http://localhost:8001")
-    uvicorn.run("mcp_api_server:app", host="0.0.0.0", port=8001, reload=False, log_level="info")
+    import os
+    port = int(os.getenv("PORT", 8001))
+    print(f"Starting MCP API Server at http://0.0.0.0:{port}")
+    uvicorn.run("mcp_api_server:app", host="0.0.0.0", port=port, reload=False, log_level="info")
