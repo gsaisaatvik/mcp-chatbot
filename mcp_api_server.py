@@ -514,9 +514,11 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="MCP API Server", version="1.1.0", lifespan=lifespan)
 
 # CORS for your frontend(s)
+import os
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:4173,http://localhost:3000").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4173", "http://localhost:3000"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

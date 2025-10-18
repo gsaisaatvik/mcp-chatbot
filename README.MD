@@ -156,6 +156,52 @@ Feedback and contributions are welcome. If you encounter any issues or have sugg
 
 If you'd like to contribute to the development of the project, feel free to submit a pull request with your changes.
 
+## 🚀 Deployment
+
+### Quick Deploy to Railway
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/your-template-id)
+
+1. **Fork this repository**
+2. **Connect to Railway:**
+   - Go to [railway.app](https://railway.app)
+   - Sign up with GitHub
+   - Deploy from your forked repository
+3. **Set environment variables:**
+   - `GROQ_API_KEY` (required)
+   - `GEMINI_API_KEY` (optional)
+   - `NOTION_TOKEN` (optional)
+   - `ALLOWED_ORIGINS` (for frontend integration)
+4. **Deploy and test!**
+
+### Frontend Integration
+
+For Vercel frontend deployment:
+
+1. **Update your frontend API endpoint:**
+   ```javascript
+   const API_BASE_URL = "https://your-app.railway.app"
+   ```
+
+2. **Set CORS origins in Railway:**
+   ```bash
+   ALLOWED_ORIGINS=https://your-app.vercel.app,https://your-app-preview.vercel.app
+   ```
+
+### Documentation
+
+- **[Deployment Guide](DEPLOYMENT.md)** - Complete Railway deployment instructions
+- **[Configuration Guide](CONFIGURATION.md)** - Customize MCP servers and settings
+- **[API Documentation](https://your-app.railway.app/docs)** - Interactive API docs (after deployment)
+
+### API Endpoints
+
+- `GET /health` - Health check
+- `GET /status` - Server and tools status
+- `GET /tools` - List available MCP tools
+- `POST /query` - Process queries with MCP tools
+- `GET /docs` - Interactive API documentation
+
 ## License
 
 This project is licensed under the [MIT License](https://github.com/3choff/mcp-chatbot/blob/main/LICENSE).
